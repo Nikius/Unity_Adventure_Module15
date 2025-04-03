@@ -7,43 +7,19 @@ namespace MyAssets.Scripts
     {
         private const KeyCode UseKeyCode = KeyCode.F;
         
-        private Consumable _currentConsumable = null;
-        
-        public bool IsHasConsumable() => _currentConsumable is not null;
+        private ItemUser _itemUser;
 
-        public void PickUpConsumable(Consumable consumable)
+        private void Awake()
         {
-            if (IsHasConsumable())
-            {
-                Debug.Log(gameObject.name + " is already has consumable");
-                
-                return;
-            }
-            
-            consumable.transform.SetParent(transform);
-            _currentConsumable = consumable;
+            _itemUser = GetComponent<ItemUser>();
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(UseKeyCode))
             {
-                Consume();
+                _itemUser.Use();
             }
-        }
-
-        private void Consume()
-        {
-            if (IsHasConsumable() == false)
-            {
-                Debug.Log(gameObject.name + " has no consumable");
-                
-                return;
-            }
-            
-            _currentConsumable.Consume(this);
-            Destroy(_currentConsumable.gameObject);
-            _currentConsumable = null;
         }
     }
 }

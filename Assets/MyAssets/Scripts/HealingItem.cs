@@ -2,20 +2,26 @@
 
 namespace MyAssets.Scripts
 {
-    public class HealingItem: Consumable
+    public class HealingItem: Item
     {
         [SerializeField] private float _healingValue;
         
-        public override void Consume(Hero hero)
+        public override void Use(GameObject user)
         {
-            Health health = hero.GetComponent<Health>();
-            
-            if (health != null)
+            Health health = user.GetComponent<Health>();
+
+            if (health is not null)
+            {
                 health.Heal(_healingValue);
+            }
             else
-                Debug.LogWarning($"{hero.name} should have a Health component attached to it");
-            
-            base.Consume(hero);
+            {
+                Debug.LogWarning($"{user.name} should have a Health component attached to it");
+                
+                return;
+            }
+
+            base.Use(user);
         }
     }
 }

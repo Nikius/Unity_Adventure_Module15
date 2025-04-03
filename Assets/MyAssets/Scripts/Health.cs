@@ -11,6 +11,7 @@ namespace MyAssets.Scripts
             if (amount <= 0)
             {
                 Debug.Log("Healing amount should be greater than 0");
+                
                 return;
             }
             

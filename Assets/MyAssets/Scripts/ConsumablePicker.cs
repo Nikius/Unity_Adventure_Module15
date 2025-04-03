@@ -5,13 +5,23 @@ namespace MyAssets.Scripts
 {
     public class ConsumablePicker: MonoBehaviour
     {
+        private Inventory _inventory;
+        private void Awake()
+        {
+            _inventory = GetComponent<Inventory>();
+
+            if (_inventory == null)
+            {
+                Debug.Log("This object should has Inventory");
+            }
+        }
+
         private void OnTriggerEnter(Collider other)
         {
-            Hero hero = other.GetComponent<Hero>();
-            Consumable consumable = GetComponent<Consumable>();
+            Item item = other.GetComponent<Item>();
 
-            if (hero != null && consumable != null && hero.IsHasConsumable() == false)
-                hero.PickUpConsumable(consumable);
+            if (_inventory is not null && item is not null && _inventory.IsHasItem() == false)
+                _inventory.StoreItem(item);
         }
     }
 }

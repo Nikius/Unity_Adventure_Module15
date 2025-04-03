@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7385270625792800356}
   - component: {fileID: -3943459999863933228}
-  - component: {fileID: -4899868612355526143}
   - component: {fileID: 1303080226664055729}
   m_Layer: 0
   m_Name: Acceleration Item
@@ -50,18 +49,6 @@ MonoBehaviour:
   _particleSystemPrefab: {fileID: 4077112758857181622, guid: f1471dca323df3249b30df7005e830ef,
     type: 3}
   _accelerationValue: 5
---- !u!114 &-4899868612355526143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4909784559581456372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a150b5d3acc4724958305695db042af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &1303080226664055729
 SphereCollider:
   m_ObjectHideFlags: 0
